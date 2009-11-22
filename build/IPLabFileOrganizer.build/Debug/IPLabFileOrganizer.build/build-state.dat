@@ -1,0 +1,295 @@
+TIPLabFileOrganizer
+v7
+r0
+t280506825.878977
+cCheck dependencies
+cProcessInfoPlistFile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Info.plist IPLabFileOrganizer-Info.plist
+cCopyStringsFile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileXIB /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/MainMenu.xib
+cProcessPCH /var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch.gch IPLabFileOrganizer_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/main.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/IPLabFileOrganizerAppDelegate.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileModel.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileEditController.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/MacOS/IPLabFileOrganizer normal x86_64
+cTouch /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004ABBF0FD00000000000000EE
+t1253830909
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004A1F2D63000000000000A5E0
+t1243557219
+s42464
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/InfoPlist.strings
+c000000004B06D1B4000000000000002D
+t1258738100
+s45
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/MainMenu.xib
+c000000004B07F9370000000000030CC9
+t1258813751
+s199881
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.h
+c000000004B07F9270000000000000180
+t1258813735
+s384
+i<Cocoa/Cocoa.h>
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.m
+c000000004B07FA4600000000000001EA
+t1258814022
+s490
+i"FileEditController.h"
+i"FileModel.h"
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.h
+c000000004B070C8A000000000000014C
+t1258753162
+s332
+i<Cocoa/Cocoa.h>
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.m
+c000000004B07643200000000000000EF
+t1258775602
+s239
+i"FileModel.h"
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileMover.h
+c000000004B07019E0000000000000167
+t1258750366
+s359
+i<Cocoa/Cocoa.h>
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileMover.m
+c000000004B06D20800000000000000CF
+t1258738184
+s207
+i"FileMover.h"
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FolderGenerator.h
+c000000004B06D1E600000000000000E8
+t1258738150
+s232
+i<Cocoa/Cocoa.h>
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FolderGenerator.m
+c000000004B06D1E600000000000000E1
+t1258738150
+s225
+i"FolderGenerator.h"
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.h
+c000000004B06D1B4000000000000015F
+t1258738100
+s351
+i<Cocoa/Cocoa.h>
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.m
+c000000004B06D1B4000000000000019F
+t1258738100
+s415
+i"IPLabFileOrganizerAppDelegate.h"
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizer_Prefix.pch
+c000000004B06D1B400000000000000A7
+t1258738100
+s167
+i<Cocoa/Cocoa.h>
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app
+t1258814024
+s102
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Info.plist
+t1258738103
+s919
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/MacOS/IPLabFileOrganizer
+t1258814024
+s17880
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/PkgInfo
+t1258738103
+s8
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Resources/English.lproj/InfoPlist.strings
+t1258738106
+s92
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Resources/English.lproj/MainMenu.nib
+t1258814023
+s39462
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileEditController.o
+t1258814024
+s16700
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileModel.o
+t1258775635
+s9552
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileMover.o
+t2
+s0
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FolderGenerator.o
+t2
+s0
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/IPLabFileOrganizer.LinkFileList
+c000000004B0764530000000000000260
+t1258775635
+s608
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/IPLabFileOrganizerAppDelegate.o
+t1258738124
+s21408
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/main.o
+t1258738124
+s5016
+
+N/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/main.m
+c000000004B06D1B4000000000000010B
+t1258738100
+s267
+i<Cocoa/Cocoa.h>
+
+N/var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch.gch
+t1258738123
+s54212368
+
+NIPLabFileOrganizer-Info.plist
+c000000004B06D1B400000000000003EA
+t1258738100
+s1002
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies280506825#280506825#0(0"0(0#1#0"4300885448#0"0#
+
+CCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileEditController.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s280506823.859532
+e280506824.151913
+r1
+xCompileC
+xbuild/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileEditController.o
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@78"Compile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.m280506823#280506824#0(0"0(0#0#70"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.m4300885448#1819"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-generated-files.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-own-target-headers.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-all-target-headers.hmap -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-project-headers.hmap -F/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/include -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources/x86_64 -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources -include /var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch -c /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileEditController.m -o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileEditController.o0#
+
+CCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileModel.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s280468435.727009
+e280468435.955297
+r1
+xCompileC
+xbuild/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileModel.o
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.m280468435#280468435#0(0"0(0#0#61"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.m4300885448#1801"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-generated-files.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-own-target-headers.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-all-target-headers.hmap -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-project-headers.hmap -F/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/include -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources/x86_64 -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources -include /var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch -c /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileModel.m -o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileModel.o0#
+
+CCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FileMover.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FileMover.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/FolderGenerator.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/FolderGenerator.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/IPLabFileOrganizerAppDelegate.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s280430924.117460
+e280430924.454844
+r1
+xCompileC
+xbuild/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/IPLabFileOrganizerAppDelegate.o
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@89"Compile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.m280430924#280430924#0(0"0(0#0#81"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.m4300885448#1841"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-generated-files.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-own-target-headers.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-all-target-headers.hmap -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-project-headers.hmap -F/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/include -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources/x86_64 -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources -include /var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch -c /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizerAppDelegate.m -o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/IPLabFileOrganizerAppDelegate.o0#
+
+CCompileC build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/main.o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s280430924.115789
+e280430924.455067
+r1
+xCompileC
+xbuild/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/main.o
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/main.m280430924#280430924#0(0"0(0#0#56"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/main.m4300885448#1791"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-generated-files.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-own-target-headers.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-all-target-headers.hmap -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-project-headers.hmap -F/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/include -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources/x86_64 -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources -include /var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch -c /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/main.m -o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/main.o0#
+
+CCompileXIB /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/MainMenu.xib
+s280506823.380351
+e280506823.859067
+r1
+xCompileXIB
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/MainMenu.xib
+lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib280506823#280506823#0(0"0(0#0#76"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/MainMenu.xib4300885448#371"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Resources/English.lproj/MainMenu.nib /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/MainMenu.xib0#
+
+CCopyStringsFile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s280430903.117670
+e280430906.080615
+r1
+xCopyStringsFile
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings280430903#280430906#0(0"0(0#0#81"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/English.lproj/InfoPlist.strings4300885448#398"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Resources/English.lproj0#
+
+CLd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/MacOS/IPLabFileOrganizer normal x86_64
+s280506824.152099
+e280506824.243181
+r1
+xLd
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/MacOS/IPLabFileOrganizer
+xnormal
+xx86_64
+lSLF07#2@123"Link /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/MacOS/IPLabFileOrganizer280506824#280506824#0(0"0(0#0#0"4300885448#652"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug -F/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug -filelist /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/Objects-normal/x86_64/IPLabFileOrganizer.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/MacOS/IPLabFileOrganizer0#
+
+CProcessInfoPlistFile /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Info.plist IPLabFileOrganizer-Info.plist
+s280430903.113364
+e280430903.117598
+r1
+xProcessInfoPlistFile
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Info.plist
+xIPLabFileOrganizer-Info.plist
+lSLF07#2@37"Process IPLabFileOrganizer-Info.plist280430903#280430903#0(0"0(0#0#79"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizer-Info.plist4300885448#376"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    builtin-infoPlistUtility IPLabFileOrganizer-Info.plist -genpkginfo /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app/Contents/Info.plist0#
+
+CProcessPCH /var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch.gch IPLabFileOrganizer_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s280430907.575530
+e280430924.115549
+r1
+xProcessPCH
+x/var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch.gch
+xIPLabFileOrganizer_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@40"Precompile IPLabFileOrganizer_Prefix.pch280430907#280430924#0(0"0(0#0#79"/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizer_Prefix.pch4300885448#1675"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-generated-files.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-own-target-headers.hmap -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-all-target-headers.hmap -iquote /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/IPLabFileOrganizer-project-headers.hmap -F/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/include -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources/x86_64 -I/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/IPLabFileOrganizer.build/Debug/IPLabFileOrganizer.build/DerivedSources -c /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/IPLabFileOrganizer_Prefix.pch -o /var/folders/Xb/Xb+ztWpSGyS2C0kMQXNW2E+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/IPLabFileOrganizer_Prefix-ffzhgebocgvypygdvjwnirihgivj/IPLabFileOrganizer_Prefix.pch.gch0#
+
+CTouch /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app
+s280506824.243276
+e280506824.245676
+r1
+xTouch
+x/Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app
+lSLF07#2@90"Touch /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app280506824#280506824#0(0"0(0#0#0"4300885448#164"    cd /Users/akirwan/Documents/cocoa/IPLabFileOrganizer    /usr/bin/touch -c /Users/akirwan/Documents/cocoa/IPLabFileOrganizer/build/Debug/IPLabFileOrganizer.app0#
+
