@@ -10,5 +10,15 @@
 
 
 @implementation FileModel
-@synthesize sourceFolder, steps;
+@synthesize sourceFolder, steps, fileManager;
+
+- (id)init
+{
+	if (self = [super init]) {	
+		self.sourceFolder = nil;
+		self.steps = nil;
+		self.fileManager = [NSFileManager defaultManager];
+	}
+	return self;
+}
 @end

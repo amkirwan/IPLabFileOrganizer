@@ -12,7 +12,9 @@
 @interface FileModel : NSObject {
 	NSString *sourceFolder;
 	NSNumber *steps;
+	NSFileManager *fileManager;
 }
 @property(copy)NSString *sourceFolder;
 @property(copy)NSNumber *steps;
+@property(assign)NSFileManager *fileManager;
 @end

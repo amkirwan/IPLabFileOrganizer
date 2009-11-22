@@ -10,15 +10,37 @@
 #import "FileModel.h"
 
 @implementation FileEditController
+@synthesize folderExists, fileModel;
 
-- (void)controlTextDidEndEditing:(NSNotification *)aNotification {
-	NSLog(@"%@", aNotification);
-	[errorForFolder setStringValue:@"error"];
+- (void)controlTextDidEndEditing:(NSNotification *)aNotification 
+{
+	NSString *sDir = [[aNotification object] stringValue];
+	self.folderExists = [fileModel.fileManager fileExistsAtPath:sDir];
+	if (self.folderExists) 
+	{
+		[startButton setEnabled:YES];
+	}
+	else 
+	{
+		[errorForFolder setStringValue:@"error"];
+	}
 }
 
-- (void)awakeFromNib {
+
+- (void)awakeFromNib 
+{
 	NSLog(@"awake from nib");
-	fileModel = [[FileModel alloc] init];
+	
+}
+
+- (id)init 
+{
+	if (self = [super init]) {
+		self.folderExists = NO;
+		self.fileModel = [[FileModel alloc] init];
+		NSLog(@"init");
+	}
+	return self;
 }
 
 @end

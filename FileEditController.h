@@ -14,7 +14,10 @@
 	IBOutlet NSTextField *sourceFolder;
 	IBOutlet NSTextField *steps;
 	IBOutlet NSTextField *errorForFolder;
+	IBOutlet NSButton *startButton;
+	BOOL folderExists;
 	FileModel *fileModel;
 }
-
+@property(assign)BOOL folderExists;
+@property(assign)FileModel *fileModel;
 @end
