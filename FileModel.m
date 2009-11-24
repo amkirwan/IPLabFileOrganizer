@@ -65,16 +65,31 @@
 	}
 } 
 
+- (NSArray *)sortedArrayOfStringsAsc:(NSArray *)array
+{
+	NSSortDescriptor *sortAsc = [[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES];
+	NSArray *sortAscArray = [NSArray arrayWithObject:sortAsc];
+	NSArray *sorted = [array sortedArrayUsingDescriptors:sortAscArray];
+	sortAsc = nil;
+	sortAscArray = nil;
+	return sorted;
+}
+
 - (NSMutableArray *)getSubFolderPaths
 {
 	NSArray *paths = [fileManager contentsOfDirectoryAtPath:self.sourceFolder error:nil];
+	// sort the array
+	NSArray *sortedPaths = [self sortedArrayOfStringsAsc:paths];
+	paths = nil;
+	
 	NSMutableArray *fullPaths = [NSMutableArray arrayWithCapacity:[paths count]];
 	
-	for(int i=0; i < [paths count]; i++)
+	for(int i=0; i < [sortedPaths count]; i++)
 	{
 		[fullPaths addObject:[self.sourceFolder stringByAppendingPathComponent:
-												[paths objectAtIndex:i]]];
+												[sortedPaths objectAtIndex:i]]];
 	}
+
 	// remove non-directories
 	NSMutableArray *removeArray = [[NSMutableArray alloc] init];
 	for(NSString *item in fullPaths)
