@@ -13,6 +13,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CB4D011810B79B78003A91DC /* FileEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4D011710B79B78003A91DC /* FileEditController.m */; };
+		CB5959FB10BB076F005B572A /* AlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5959FA10BB076F005B572A /* AlertMessage.m */; };
 		CBA6F06210B739620097CBB4 /* FileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA6F06110B739620097CBB4 /* FileModel.m */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,8 @@
 		8D1107320486CEB800E47090 /* IPLabFileOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPLabFileOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4D011610B79B78003A91DC /* FileEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileEditController.h; sourceTree = "<group>"; };
 		CB4D011710B79B78003A91DC /* FileEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileEditController.m; sourceTree = "<group>"; };
+		CB5959F910BB076F005B572A /* AlertMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertMessage.h; sourceTree = "<group>"; };
+		CB5959FA10BB076F005B572A /* AlertMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertMessage.m; sourceTree = "<group>"; };
 		CBA6F06010B739620097CBB4 /* FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileModel.h; sourceTree = "<group>"; };
 		CBA6F06110B739620097CBB4 /* FileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +59,8 @@
 				CBA6F06110B739620097CBB4 /* FileModel.m */,
 				CB4D011610B79B78003A91DC /* FileEditController.h */,
 				CB4D011710B79B78003A91DC /* FileEditController.m */,
+				CB5959F910BB076F005B572A /* AlertMessage.h */,
+				CB5959FA10BB076F005B572A /* AlertMessage.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				256AC3DA0F4B6AC300CF3369 /* IPLabFileOrganizerAppDelegate.m in Sources */,
 				CBA6F06210B739620097CBB4 /* FileModel.m in Sources */,
 				CB4D011810B79B78003A91DC /* FileEditController.m in Sources */,
+				CB5959FB10BB076F005B572A /* AlertMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

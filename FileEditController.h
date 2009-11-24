@@ -8,16 +8,21 @@
 
 #import <Cocoa/Cocoa.h>
 @class FileModel;
+@class AlertMessage;
 
 
 @interface FileEditController : NSObject {
 	IBOutlet NSTextField *sourceFolder;
 	IBOutlet NSTextField *steps;
-	IBOutlet NSTextField *errorForFolder;
 	IBOutlet NSButton *startButton;
 	BOOL folderExists;
 	FileModel *fileModel;
+	AlertMessage *alert;
 }
 @property(assign)BOOL folderExists;
 @property(assign)FileModel *fileModel;
+@property(assign)AlertMessage *alert;
+
+- (IBAction)startProcessing:(id)sender;
+- (IBAction)cancelProcessing:(id)sender;
 @end

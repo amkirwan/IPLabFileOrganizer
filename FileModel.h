@@ -11,10 +11,18 @@
 
 @interface FileModel : NSObject {
 	NSString *sourceFolder;
-	NSNumber *steps;
+	NSInteger *steps;
 	NSFileManager *fileManager;
 }
 @property(copy)NSString *sourceFolder;
-@property(copy)NSNumber *steps;
+@property(assign)NSInteger *steps;
 @property(assign)NSFileManager *fileManager;
+@property(copy)NSString *outputFolderName;
+@property(assign)BOOL continueProcessing;
+@property(assign)NSArray *subFoldersPaths;
+@property(assign)NSArray *fileNames;
+
++ (BOOL)folderExists:(NSString *)dir;
+
+- (void)startProcessingFromDir:(NSString *)sDir steps:(NSString *)sSteps;
 @end
