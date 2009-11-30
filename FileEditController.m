@@ -29,6 +29,8 @@
 - (void)finishedProcessing
 {
 	[startButton setEnabled:YES];
+	[progress setHidden:NO];
+	[completedText setHidden:YES];
 }
 
 - (IBAction)startProcessing:(id)sender 
@@ -36,6 +38,8 @@
 	if (self.folderExists && [steps intValue] > 0) 
 	{
 		[startButton setEnabled:NO];
+		[progress setHidden:NO];
+		[completedText setHidden:NO];
 		[fileModel startProcessingFromDir:[sourceFolder stringValue]
 									steps:[steps stringValue]];
 		[self finishedProcessing];
@@ -56,6 +60,14 @@
 
 - (IBAction)cancelProcessing:(id)sender 
 {
+	[self.fileModel setContinueProcessing:NO];
+}
+
+- (void)updateProgress:(NSUInteger)completed
+{
+	double currentProgress = [progress doubleValue];
+	[progress setDoubleValue:((currentProgress / [self.fileModel steps]) * 100)];
+	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %@ of %qu", completed, [self.fileModel steps]]];
 }
 
 
@@ -69,6 +81,7 @@
 	if (self = [super init]) {
 		self.folderExists = NO;
 		self.fileModel = [[FileModel alloc] init];
+		self.fileModel.delegate = self;
 		self.alert = [[AlertMessage alloc] init];
 		NSLog(@"init");
 	}

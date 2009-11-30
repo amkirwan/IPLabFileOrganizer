@@ -34,6 +34,7 @@
 		CB4D011710B79B78003A91DC /* FileEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileEditController.m; sourceTree = "<group>"; };
 		CB5959F910BB076F005B572A /* AlertMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertMessage.h; sourceTree = "<group>"; };
 		CB5959FA10BB076F005B572A /* AlertMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertMessage.m; sourceTree = "<group>"; };
+		CB6FD47710C45D7100F3EF9D /* ProgressIndicatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressIndicatorDelegate.h; sourceTree = "<group>"; };
 		CBA6F06010B739620097CBB4 /* FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileModel.h; sourceTree = "<group>"; };
 		CBA6F06110B739620097CBB4 /* FileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +62,7 @@
 				CB4D011710B79B78003A91DC /* FileEditController.m */,
 				CB5959F910BB076F005B572A /* AlertMessage.h */,
 				CB5959FA10BB076F005B572A /* AlertMessage.m */,
+				CB6FD47710C45D7100F3EF9D /* ProgressIndicatorDelegate.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

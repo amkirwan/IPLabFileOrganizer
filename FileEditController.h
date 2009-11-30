@@ -7,14 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ProgressIndicatorDelegate.h"
 @class FileModel;
 @class AlertMessage;
 
 
-@interface FileEditController : NSObject {
+@interface FileEditController : NSObject <ProgressIndicatorDelegate> {
 	IBOutlet NSTextField *sourceFolder;
 	IBOutlet NSTextField *steps;
 	IBOutlet NSButton *startButton;
+	IBOutlet NSProgressIndicator *progress;
+	IBOutlet NSTextField *completedText;
 	BOOL folderExists;
 	FileModel *fileModel;
 	AlertMessage *alert;
