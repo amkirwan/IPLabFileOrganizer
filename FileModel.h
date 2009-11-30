@@ -11,14 +11,15 @@
 
 @interface FileModel : NSObject {
 	NSString *sourceFolder;
-	NSInteger *steps;
+	NSUInteger steps;
 	NSFileManager *fileManager;
 }
 @property(copy)NSString *sourceFolder;
-@property(assign)NSInteger *steps;
+@property(assign)NSUInteger steps;
 @property(assign)NSFileManager *fileManager;
 @property(copy)NSString *outputFolderName;
 @property(assign)BOOL continueProcessing;
+@property(assign)NSMutableArray *createdFolders;
 @property(assign)NSArray *subFoldersPaths;
 @property(assign)NSArray *fileNames;
 

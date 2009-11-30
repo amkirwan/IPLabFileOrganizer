@@ -10,11 +10,21 @@
 
 @implementation FileModel
 @synthesize sourceFolder, steps, fileManager, outputFolderName, 
-	continueProcessing, subFoldersPaths, fileNames;
+	continueProcessing, subFoldersPaths, fileNames, createdFolders;
 
 + (BOOL)folderExists:(NSString *)dir {
 	NSString *path = [dir stringByExpandingTildeInPath];
 	return [[NSFileManager defaultManager] fileExistsAtPath:path];
+}
+
+- (NSArray *)sortedArrayOfStringsAsc:(NSArray *)array
+{
+	NSSortDescriptor *sortAsc = [[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES];
+	NSArray *sortAscArray = [NSArray arrayWithObject:sortAsc];
+	NSArray *sorted = [array sortedArrayUsingDescriptors:sortAscArray];
+	sortAsc = nil;
+	sortAscArray = nil;
+	return sorted;
 }
 
 - (BOOL)createDirectory:(NSString *)dirName
@@ -41,11 +51,10 @@
 	if ([fileManager changeCurrentDirectoryPath:
 		[self.sourceFolder stringByAppendingPathComponent:self.outputFolderName]]) 
 	{
-		
-		int length = [loopSteps intValue];
-		for(int i=0; i < length; i++)
+		for(int i=0; i < [loopSteps intValue]; i++)
 		{
 			NSString *dirName = [NSString stringWithFormat:@"%d", i+1];
+			[self.createdFolders addObject:dirName];
 			[self createDirectory:dirName];
 		}
 		return YES;
@@ -54,26 +63,59 @@
 	{
 		return NO;
 	}
-
 }
+
+- (BOOL)assertRegex:(NSString*)stringToSearch withRegex:(NSString*)regexString {
+    NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexString];
+    return [regex evaluateWithObject:stringToSearch];    
+}
+
 
 - (void)moveFiles
-{
-	for(NSString *item in self.subFoldersPaths)
-	{
-		NSLog(@"%@", item);
-	}
+{	
+	self.continueProcessing = YES; 
+	NSMutableArray *allFilesArray = [NSMutableArray arrayWithCapacity:10000];
+	
+		// extract filenames to process
+		for(NSString *dir in self.subFoldersPaths)
+		{
+			
+			NSArray *files = [self sortedArrayOfStringsAsc:
+									[fileManager contentsOfDirectoryAtPath:dir 
+																	 error:nil]];
+			for(NSString *file in files)
+			{
+				if (![self assertRegex:file withRegex:@".DS_Store"]) 
+				{
+					NSLog(@"%@", file);
+					[allFilesArray addObject:file];
+				}
+			}
+			files = nil;
+		}
+	
+		while (continueProcessing) 
+		{
+			for(NSUInteger i=0; i < self.steps; i++)
+			{
+				NSString *folderName = [self.sourceFolder 
+										stringByAppendingPathComponent:
+										[NSString stringWithFormat:@"%qu", (i + 1)]];
+				NSUInteger indexName = 1;
+				for(NSUInteger j=0; j < [allFilesArray count]; j += self.steps)
+				{
+					NSString *oldPath = [self.sourceFolder stringByAppendingPathComponent:[allFilesArray objectAtIndex:j]];
+					NSString *newPath = [folderName stringByAppendingPathComponent:[NSString stringWithFormat:@"%qu", indexName]];
+					//NSLog(@"%@", oldPath);
+					//NSLog(@"%@", newPath);
+					[[NSFileManager defaultManager] movePath:oldPath toPath:newPath handler:nil];
+					indexName++;
+				}
+			}
+			self.continueProcessing = NO;
+		}	
+	allFilesArray = nil;	
 } 
-
-- (NSArray *)sortedArrayOfStringsAsc:(NSArray *)array
-{
-	NSSortDescriptor *sortAsc = [[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES];
-	NSArray *sortAscArray = [NSArray arrayWithObject:sortAsc];
-	NSArray *sorted = [array sortedArrayUsingDescriptors:sortAscArray];
-	sortAsc = nil;
-	sortAscArray = nil;
-	return sorted;
-}
 
 - (NSMutableArray *)getSubFolderPaths
 {
@@ -84,7 +126,7 @@
 	
 	NSMutableArray *fullPaths = [NSMutableArray arrayWithCapacity:[paths count]];
 	
-	for(int i=0; i < [sortedPaths count]; i++)
+	for(NSUInteger i=0; i < [sortedPaths count]; i++)
 	{
 		[fullPaths addObject:[self.sourceFolder stringByAppendingPathComponent:
 												[sortedPaths objectAtIndex:i]]];
@@ -110,7 +152,7 @@
 - (void)startProcessingFromDir:(NSString *)sDir steps:(NSString *)sSteps
 {
 	self.sourceFolder = sDir;
-	self.steps = steps;
+	self.steps = [sSteps integerValue];
 	if ([fileManager changeCurrentDirectoryPath:self.sourceFolder]) 
 	{
 		self.subFoldersPaths = [self getSubFolderPaths];
@@ -125,7 +167,7 @@
 {
 	if (self = [super init]) {	
 		self.sourceFolder = nil;
-		self.steps = nil;
+		self.steps = 1;
 		self.outputFolderName = @"processedIPLab";
 		self.fileManager = [[NSFileManager alloc] init];
 	}
