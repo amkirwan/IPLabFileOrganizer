@@ -29,7 +29,7 @@
 {
 	[startButton setEnabled:YES];
 	//[progress setHidden:];
-	//[completedText setHidden:YES];
+	[completedText setHidden:YES];
 }
 
 - (IBAction)startProcessing:(id)sender 
@@ -38,6 +38,7 @@
 	{
 		[startButton setEnabled:NO];
 		[progress setHidden:NO];
+		[completedText setHidden:YES];
 		[self.fileModel startProcessingFromDir:[sourceFolder stringValue]
 									steps:[steps stringValue]];
 		[self finishedProcessing];
@@ -63,8 +64,12 @@
 
 - (void)updateProgress:(NSUInteger)completed {
 	NSLog(@"%qu", completed);
-	NSLog(@"%f", ((completed / [self.fileModel steps]) * 100.0));
-	[progress setDoubleValue:((completed / [self.fileModel steps]) * 100.0)];
+	float compf = completed;
+	NSLog(@"%f", ((compf / [self.fileModel steps]) * 100.0));
+	[progress setDoubleValue:((compf / [self.fileModel steps]) * 100.0)];
+	[progress displayIfNeeded];
+	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %qu of %qu", completed, [self.fileModel steps]]];
+	[completedText displayIfNeeded];
 }
 
 

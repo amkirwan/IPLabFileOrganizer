@@ -109,14 +109,14 @@ static NSString *OutputFolderName = @"processedIPLab";
 										stringByAppendingPathComponent:[OutputFolderName stringByAppendingPathComponent:
 										[NSString stringWithFormat:@"%qu", (i + incr)]]];
 				NSUInteger indexName = 1;
-				for(NSUInteger j=0; j < [allFilesArray count]; j += self.steps)
+				for(NSUInteger j=i; j < [allFilesArray count]; j += self.steps)
 				{
 					NSString *oldPath = [allFilesArray objectAtIndex:j];
 					NSString *newPath = [destPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%qu", indexName]];
 					NSLog(@"oldPath= %@", oldPath);
 					NSLog(@"newPath= %@", newPath);
 					NSError *error = nil;
-					BOOL move = YES;//[self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
+					BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
 					if (!move)
 					{
 						NSLog(@"error reading file");
@@ -124,7 +124,7 @@ static NSString *OutputFolderName = @"processedIPLab";
 					}
 					indexName++;
 				}
-				//[self.delegate updateProgress:(i + incr)];
+				[self.delegate updateProgress:(i + incr)];
 			}
 			self.continueProcessing = NO;
 		}	
