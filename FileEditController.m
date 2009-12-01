@@ -23,14 +23,13 @@
 	} else {
 		[[aNotification object] setTextColor:[NSColor redColor]];
 	}
-	NSLog(@"controlTextDidChange");
 }
 
 - (void)finishedProcessing
 {
 	[startButton setEnabled:YES];
-	[progress setHidden:NO];
-	[completedText setHidden:YES];
+	//[progress setHidden:];
+	//[completedText setHidden:YES];
 }
 
 - (IBAction)startProcessing:(id)sender 
@@ -39,8 +38,7 @@
 	{
 		[startButton setEnabled:NO];
 		[progress setHidden:NO];
-		[completedText setHidden:NO];
-		[fileModel startProcessingFromDir:[sourceFolder stringValue]
+		[self.fileModel startProcessingFromDir:[sourceFolder stringValue]
 									steps:[steps stringValue]];
 		[self finishedProcessing];
 	}
@@ -63,11 +61,10 @@
 	[self.fileModel setContinueProcessing:NO];
 }
 
-- (void)updateProgress:(NSUInteger)completed
-{
-	double currentProgress = [progress doubleValue];
-	[progress setDoubleValue:((currentProgress / [self.fileModel steps]) * 100)];
-	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %@ of %qu", completed, [self.fileModel steps]]];
+- (void)updateProgress:(NSUInteger)completed {
+	NSLog(@"%qu", completed);
+	NSLog(@"%f", ((completed / [self.fileModel steps]) * 100.0));
+	[progress setDoubleValue:((completed / [self.fileModel steps]) * 100.0)];
 }
 
 

@@ -98,14 +98,16 @@ static NSString *OutputFolderName = @"processedIPLab";
 			}
 			files = nil;
 		}
-	
+		
+	    // move files
 		while (continueProcessing) 
 		{
+			NSUInteger incr = 1;
 			for(NSUInteger i=0; i < self.steps; i++)
 			{
 				NSString *destPath = [self.sourceFolder 
 										stringByAppendingPathComponent:[OutputFolderName stringByAppendingPathComponent:
-										[NSString stringWithFormat:@"%qu", (i + 1)]]];
+										[NSString stringWithFormat:@"%qu", (i + incr)]]];
 				NSUInteger indexName = 1;
 				for(NSUInteger j=0; j < [allFilesArray count]; j += self.steps)
 				{
@@ -114,15 +116,15 @@ static NSString *OutputFolderName = @"processedIPLab";
 					NSLog(@"oldPath= %@", oldPath);
 					NSLog(@"newPath= %@", newPath);
 					NSError *error = nil;
-					BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
+					BOOL move = YES;//[self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
 					if (!move)
 					{
-						NSLog(@"here");
+						NSLog(@"error reading file");
 						//NSLog(@"%@", [NSApp presentError:error]);
 					}
 					indexName++;
 				}
-				[self.delegate updateProgress:i];
+				//[self.delegate updateProgress:(i + incr)];
 			}
 			self.continueProcessing = NO;
 		}	
@@ -155,7 +157,15 @@ static NSString *OutputFolderName = @"processedIPLab";
 			[removeArray addObject:item];
 		}
 	}
-	[fullPaths removeObjectsInArray:removeArray];
+	
+	// remove objects
+	[fullPaths removeObjectsInArray:removeArray];	
+	if ([fullPaths count] == 0) 
+	{
+		[fullPaths addObject:self.sourceFolder];
+		NSLog(@"%@", fullPaths);
+		
+	}
 	[removeArray removeAllObjects];
 	removeArray = nil;
 	return fullPaths;
