@@ -75,7 +75,7 @@
 
 - (void)awakeFromNib 
 {
-	NSLog(@"awake from nib");	
+	operationQueue = [[NSOperationQueue alloc] init];	
 }
 
 - (id)init 
