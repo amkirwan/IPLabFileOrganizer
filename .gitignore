@@ -1,0 +1,19 @@
+# ignore xcode auto-generated files
+build/
+*~.nib/
+*.perspectivev3
+*.pbxuser
+*.mode1v3
+
+# ignore os x noise
+.DS_Store
+profile
+
+# ignore backups created by text editors
+*~
+*.bak
+
+# ignore object/generated files
+*.o
+*.pyc
+*.pyo
