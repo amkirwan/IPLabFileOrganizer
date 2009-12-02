@@ -19,7 +19,6 @@
 	IBOutlet NSProgressIndicator *progress;
 	IBOutlet NSTextField *completedText;
 	BOOL folderExists;
-	NSOperationQueue *operationQueue;
 	FileModel *fileModel;
 	AlertMessage *alert;
 }

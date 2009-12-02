@@ -8,12 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ProgressIndicatorDelegate.h"
+@class MoveRenameOperation;
 
 @interface FileModel : NSObject {
 	NSString *sourceFolder;
 	NSUInteger steps;
 	NSObject <ProgressIndicatorDelegate> *delegate;
+	NSOperationQueue *queue;
 	NSFileManager *fileManager;
+	BOOL isProcessing;
 }
 @property(copy)NSString *sourceFolder;
 @property(assign)NSUInteger steps;
@@ -21,13 +24,14 @@
 @property(assign)id delegate;
 @property(assign)NSFileManager *fileManager;
 @property(copy)NSString *outputFolderName;
-@property(assign)BOOL continueProcessing;
+@property(assign)BOOL isProcessing;
 @property(assign)NSMutableArray *createdFolders;
-@property(assign)NSArray *subFoldersPaths;
+@property(retain)NSArray *subFoldersPaths;
 @property(assign)NSArray *fileNames;
 
 
 + (BOOL)folderExists:(NSString *)dir;
 
 - (void)startProcessingFromDir:(NSString *)sDir steps:(NSString *)sSteps;
+- (void)moveFiles;
 @end

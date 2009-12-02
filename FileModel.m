@@ -7,13 +7,22 @@
 //
 
 #import "FileModel.h"
+#import "MoveRenameOperation.h"
 
 static NSString *OutputFolderName = @"processedIPLab";
 
 @implementation FileModel
 
-@synthesize sourceFolder, steps, fileManager, outputFolderName, delegate, 
-	continueProcessing, subFoldersPaths, fileNames, createdFolders, completedSteps;
+@synthesize sourceFolder; 
+@synthesize steps;
+@synthesize fileManager;
+@synthesize outputFolderName;
+@synthesize delegate;
+@synthesize isProcessing;
+@synthesize subFoldersPaths;
+@synthesize fileNames;
+@synthesize createdFolders;
+@synthesize completedSteps;
 
 // CLASS METHODS
 + (BOOL)folderExists:(NSString *)dir {
@@ -53,11 +62,11 @@ static NSString *OutputFolderName = @"processedIPLab";
 
 }
 
-- (BOOL)createSubFolders:(NSString *)loopSteps {
+- (BOOL)createSubFolders:(NSUInteger) loopSteps {
 	if ([fileManager changeCurrentDirectoryPath:
 		[self.sourceFolder stringByAppendingPathComponent:OutputFolderName]]) 
 	{
-		for(int i=0; i < [loopSteps intValue]; i++)
+		for(int i=0; i < loopSteps; i++)
 		{
 			NSString *dirName = [NSString stringWithFormat:@"%d", i+1];
 			[self.createdFolders addObject:dirName];
@@ -79,55 +88,57 @@ static NSString *OutputFolderName = @"processedIPLab";
 
 - (void)moveFiles
 {	
-	self.continueProcessing = YES; 
+	NSLog(@"moveFiles");
+	self.isProcessing = YES; 
 	NSMutableArray *allFilesArray = [NSMutableArray arrayWithCapacity:10000];
 	
+	NSLog(@"%@", self.subFoldersPaths);
 		// extract filenames to process
-		for(NSString *dir in self.subFoldersPaths)
+	for(NSString *dir in self.subFoldersPaths)
+	{
+		NSArray *files = [self sortedArrayOfStringsAsc:
+								[fileManager contentsOfDirectoryAtPath:dir 
+																	error:nil]];
+		for(NSString *file in files)
 		{
-			
-			NSArray *files = [self sortedArrayOfStringsAsc:
-									[fileManager contentsOfDirectoryAtPath:dir 
-																	 error:nil]];
-			for(NSString *file in files)
+				
+			if (![self assertRegex:file withRegex:@".DS_Store"]) 
 			{
-				if (![self assertRegex:file withRegex:@".DS_Store"]) 
-				{
-					[allFilesArray addObject:[dir stringByAppendingPathComponent:file]];
-				}
+				[allFilesArray addObject:[dir stringByAppendingPathComponent:file]];
 			}
-			files = nil;
 		}
-		
-	    // move files
-		while (continueProcessing) 
+			files = nil;
+	}
+	[self createProcessedFolder];
+	[self createSubFolders:self.steps];
+	
+	while (self.isProcessing) 
+	{
+		NSUInteger incr = 1;
+		for(NSUInteger i=0; i < self.steps; i++)
 		{
-			NSUInteger incr = 1;
-			for(NSUInteger i=0; i < self.steps; i++)
+			NSString *destPath = [self.sourceFolder 
+									stringByAppendingPathComponent:[OutputFolderName stringByAppendingPathComponent:
+									[NSString stringWithFormat:@"%qu", (i + incr)]]];
+			NSUInteger indexName = 1;
+			for(NSUInteger j=i; j < [allFilesArray count]; j += self.steps)
 			{
-				NSString *destPath = [self.sourceFolder 
-										stringByAppendingPathComponent:[OutputFolderName stringByAppendingPathComponent:
-										[NSString stringWithFormat:@"%qu", (i + incr)]]];
-				NSUInteger indexName = 1;
-				for(NSUInteger j=i; j < [allFilesArray count]; j += self.steps)
+				NSString *oldPath = [allFilesArray objectAtIndex:j];
+				NSString *newPath = [destPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%qu", indexName]];
+				//NSLog(@"oldPath= %@", oldPath);
+				//NSLog(@"newPath= %@", newPath);
+				NSError *error = nil;
+				BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
+				if (!move)
 				{
-					NSString *oldPath = [allFilesArray objectAtIndex:j];
-					NSString *newPath = [destPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%qu", indexName]];
-					NSLog(@"oldPath= %@", oldPath);
-					NSLog(@"newPath= %@", newPath);
-					NSError *error = nil;
-					BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
-					if (!move)
-					{
-						NSLog(@"error reading file");
-						//NSLog(@"%@", [NSApp presentError:error]);
-					}
-					indexName++;
+					NSLog(@"%@", [error localizedFailureReason]);
 				}
-				[self.delegate updateProgress:(i + incr)];
+				indexName++;
 			}
-			self.continueProcessing = NO;
-		}	
+			[self.delegate updateProgress:(i + incr)];
+		}
+		self.isProcessing = NO;
+	}	
 	allFilesArray = nil;	
 } 
 
@@ -163,8 +174,6 @@ static NSString *OutputFolderName = @"processedIPLab";
 	if ([fullPaths count] == 0) 
 	{
 		[fullPaths addObject:self.sourceFolder];
-		NSLog(@"%@", fullPaths);
-		
 	}
 	[removeArray removeAllObjects];
 	removeArray = nil;
@@ -174,13 +183,15 @@ static NSString *OutputFolderName = @"processedIPLab";
 - (void)startProcessingFromDir:(NSString *)sDir steps:(NSString *)sSteps
 {
 	self.sourceFolder = sDir;
-	self.steps = [sSteps integerValue];
+		
+	self.steps = (NSUInteger)[sSteps integerValue];
 	if ([fileManager changeCurrentDirectoryPath:self.sourceFolder]) 
-	{
+	{				
 		self.subFoldersPaths = [self getSubFolderPaths];
-		[self createProcessedFolder];
-		[self createSubFolders:sSteps];
-		[self moveFiles];
+		queue = [[NSOperationQueue alloc] init];
+		MoveRenameOperation *op = [[MoveRenameOperation alloc] init];
+		[op setFileModel:self];
+		[queue addOperation:op];
 	}
 	
 }
@@ -192,6 +203,7 @@ static NSString *OutputFolderName = @"processedIPLab";
 		self.steps = 1;
 		self.fileManager = [[NSFileManager alloc] init];
 	}
+	NSLog(@"init");
 	return self;
 }
 @end

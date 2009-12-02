@@ -11,7 +11,9 @@
 #import "AlertMessage.h"
 
 @implementation FileEditController
-@synthesize folderExists, fileModel, alert;
+@synthesize folderExists;
+@synthesize fileModel;
+@synthesize alert;
 
 - (void)controlTextDidChange:(NSNotification *)aNotification 
 {
@@ -36,12 +38,13 @@
 {
 	if (self.folderExists && [steps intValue] > 0) 
 	{
+		
 		[startButton setEnabled:NO];
 		[progress setHidden:NO];
 		[completedText setHidden:YES];
 		[self.fileModel startProcessingFromDir:[sourceFolder stringValue]
 									steps:[steps stringValue]];
-		[self finishedProcessing];
+		//[self finishedProcessing];
 	}
 	else if (!self.folderExists)
 	{
@@ -59,7 +62,7 @@
 
 - (IBAction)cancelProcessing:(id)sender 
 {
-	[self.fileModel setContinueProcessing:NO];
+	NSLog(@"CANCCCCCCCCCCCCCCCCEL");
 }
 
 - (void)updateProgress:(NSUInteger)completed {
@@ -73,11 +76,6 @@
 }
 
 
-- (void)awakeFromNib 
-{
-	operationQueue = [[NSOperationQueue alloc] init];	
-}
-
 - (id)init 
 {
 	if (self = [super init]) {
@@ -85,7 +83,6 @@
 		self.fileModel = [[FileModel alloc] init];
 		self.fileModel.delegate = self;
 		self.alert = [[AlertMessage alloc] init];
-		NSLog(@"init");
 	}
 	return self;
 }
