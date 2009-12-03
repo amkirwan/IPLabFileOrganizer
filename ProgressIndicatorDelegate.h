@@ -13,6 +13,6 @@
 @protocol ProgressIndicatorDelegate
 
 @required
-- (void) updateProgress:(NSUInteger)completed;
+- (void) updateProgress:(NSNumber *)completed;
 
 @end

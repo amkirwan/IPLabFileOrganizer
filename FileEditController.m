@@ -44,7 +44,6 @@
 		[completedText setHidden:YES];
 		[self.fileModel startProcessingFromDir:[sourceFolder stringValue]
 									steps:[steps stringValue]];
-		//[self finishedProcessing];
 	}
 	else if (!self.folderExists)
 	{
@@ -65,13 +64,14 @@
 	NSLog(@"CANCCCCCCCCCCCCCCCCEL");
 }
 
-- (void)updateProgress:(NSUInteger)completed {
-	NSLog(@"%qu", completed);
-	float compf = completed;
-	NSLog(@"%f", ((compf / [self.fileModel steps]) * 100.0));
+- (void)updateProgress:(NSNumber *)completed 
+{
+	//NSLog(@"%qu", completed);
+	//NSLog(@"%f", ((compf / [self.fileModel steps]) * 100.0));
+	float compf = [completed floatValue];	
 	[progress setDoubleValue:((compf / [self.fileModel steps]) * 100.0)];
 	[progress displayIfNeeded];
-	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %qu of %qu", completed, [self.fileModel steps]]];
+	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %qu of %qu", [completed integerValue], [self.fileModel steps]]];
 	[completedText displayIfNeeded];
 }
 

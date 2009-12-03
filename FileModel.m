@@ -128,18 +128,24 @@ static NSString *OutputFolderName = @"processedIPLab";
 				//NSLog(@"oldPath= %@", oldPath);
 				//NSLog(@"newPath= %@", newPath);
 				NSError *error = nil;
-				BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
+				BOOL move = YES;//[self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
 				if (!move)
 				{
 					NSLog(@"%@", [error localizedFailureReason]);
 				}
 				indexName++;
 			}
-			[self.delegate updateProgress:(i + incr)];
+			[self.delegate performSelectorOnMainThread:@selector(updateProgress:) 
+											withObject:[NSNumber numberWithUnsignedInteger:(i + incr)]
+										 waitUntilDone:YES];
+			//[self.delegate updateProgress:(i + incr)];
 		}
 		self.isProcessing = NO;
 	}	
-	allFilesArray = nil;	
+	allFilesArray = nil;
+	[self.delegate performSelectorOnMainThread:@selector(finishedProcessing:) 
+									withObject:nil
+								 waitUntilDone:NO];
 } 
 
 - (NSMutableArray *)getSubFolderPaths
