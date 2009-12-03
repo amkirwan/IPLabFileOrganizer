@@ -30,8 +30,10 @@
 - (void)finishedProcessing
 {
 	[startButton setEnabled:YES];
-	//[progress setHidden:];
-	[completedText setHidden:YES];
+	[progress setHidden:YES];
+	[completedText setHidden:YES];	
+	[alert showAlert:@"Completed processing files into directory processedIPLab"
+			 heading:@"Finished"];
 }
 
 - (IBAction)startProcessing:(id)sender 
@@ -47,21 +49,21 @@
 	}
 	else if (!self.folderExists)
 	{
-		NSString *message = [NSString stringWithFormat:
-							 @"The folder '%@' does not exits.\n Processing has been cancelled", [sourceFolder stringValue]];
-
-		[alert showAlert:message];	
+		[alert showAlert:[NSString stringWithFormat:
+				@"The folder '%@' does not exits.\n Processing has been cancelled", [sourceFolder stringValue]] 
+				 heading:@"Warning"];	
 	} 
 	else 
 	{
-		[alert showAlert:@"The steps must be greater than 0 for processing."];
+		[alert showAlert:@"The steps must be greater than 0 for processing."
+	             heading:@"Warning"];
 	}
 
 }
 
 - (IBAction)cancelProcessing:(id)sender 
 {
-	NSLog(@"CANCCCCCCCCCCCCCCCCEL");
+	[fileModel cancelAll];
 }
 
 - (void)updateProgress:(NSNumber *)completed 

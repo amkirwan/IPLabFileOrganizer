@@ -11,9 +11,9 @@
 
 @implementation AlertMessage
 
-- (void)showAlert:(NSString *)text 
+- (void)showAlert:(NSString *)text heading:(NSString *)message
 {
-	NSAlert *alert = [NSAlert alertWithMessageText:@"Warning"
+	NSAlert *alert = [NSAlert alertWithMessageText:message
 									 defaultButton:@"Ok" 
 								   alternateButton:nil 
 									   otherButton:nil
@@ -22,6 +22,11 @@
 	[alert beginSheetModalForWindow:window modalDelegate:self 
 					 didEndSelector:nil contextInfo:nil];	
 	
+}
+
+- (id)init
+{
+	if(self = [super init]) return self;
 }
 
 @end

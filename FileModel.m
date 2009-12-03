@@ -16,7 +16,6 @@ static NSString *OutputFolderName = @"processedIPLab";
 @synthesize sourceFolder; 
 @synthesize steps;
 @synthesize fileManager;
-@synthesize outputFolderName;
 @synthesize delegate;
 @synthesize isProcessing;
 @synthesize subFoldersPaths;
@@ -85,6 +84,12 @@ static NSString *OutputFolderName = @"processedIPLab";
     return [regex evaluateWithObject:stringToSearch];    
 }
 
+- (void)cancelAll
+{
+	self.isProcessing = NO;
+	[queue cancelAllOperations];
+}
+
 
 - (void)moveFiles
 {	
@@ -143,7 +148,7 @@ static NSString *OutputFolderName = @"processedIPLab";
 		self.isProcessing = NO;
 	}	
 	allFilesArray = nil;
-	[self.delegate performSelectorOnMainThread:@selector(finishedProcessing:) 
+	[self.delegate performSelectorOnMainThread:@selector(finishedProcessing) 
 									withObject:nil
 								 waitUntilDone:NO];
 } 

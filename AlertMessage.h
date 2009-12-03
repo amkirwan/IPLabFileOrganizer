@@ -13,5 +13,5 @@
 	IBOutlet NSWindow *window;
 }
 
-- (void)showAlert:(NSString *)text;
+- (void)showAlert:(NSString *)text heading:(NSString *)message;
 @end

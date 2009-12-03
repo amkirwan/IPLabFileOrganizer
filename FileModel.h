@@ -23,7 +23,6 @@
 @property(assign)NSUInteger completedSteps;
 @property(assign)id delegate;
 @property(assign)NSFileManager *fileManager;
-@property(copy)NSString *outputFolderName;
 @property(assign)BOOL isProcessing;
 @property(assign)NSMutableArray *createdFolders;
 @property(retain)NSArray *subFoldersPaths;
@@ -34,4 +33,5 @@
 
 - (void)startProcessingFromDir:(NSString *)sDir steps:(NSString *)sSteps;
 - (void)moveFiles;
+- (void)cancelAll;
 @end

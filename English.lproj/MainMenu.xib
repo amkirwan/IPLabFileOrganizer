@@ -1578,18 +1578,18 @@
 							<int key="NSpiFlags">16392</int>
 							<double key="NSMaxValue">100</double>
 						</object>
-						<object class="NSTextField" id="895817649">
+						<object class="NSTextField" id="834372744">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">-2147483380</int>
 							<string key="NSFrame">{{148, 84}, {226, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="110056729">
+							<object class="NSTextFieldCell" key="NSCell" id="529001302">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Completed:</string>
 								<reference key="NSSupport" ref="26419584"/>
-								<reference key="NSControlView" ref="895817649"/>
+								<reference key="NSControlView" ref="834372744"/>
 								<reference key="NSBackgroundColor" ref="742460901"/>
 								<reference key="NSTextColor" ref="655107574"/>
 							</object>
@@ -2365,7 +2365,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">completedText</string>
 						<reference key="source" ref="1048086300"/>
-						<reference key="destination" ref="895817649"/>
+						<reference key="destination" ref="834372744"/>
 					</object>
 					<int key="connectionID">596</int>
 				</object>
@@ -2932,7 +2932,7 @@
 							<reference ref="116537266"/>
 							<reference ref="68227974"/>
 							<reference ref="387937906"/>
-							<reference ref="895817649"/>
+							<reference ref="834372744"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3546,17 +3546,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">594</int>
-						<reference key="object" ref="895817649"/>
+						<reference key="object" ref="834372744"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="110056729"/>
+							<reference ref="529001302"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">595</int>
-						<reference key="object" ref="110056729"/>
-						<reference key="parent" ref="895817649"/>
+						<reference key="object" ref="529001302"/>
+						<reference key="parent" ref="834372744"/>
 					</object>
 				</object>
 			</object>
@@ -4143,7 +4143,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">596</int>
+			<int key="maxID">597</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
