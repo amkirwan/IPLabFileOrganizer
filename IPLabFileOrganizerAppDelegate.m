@@ -7,13 +7,20 @@
 //
 
 #import "IPLabFileOrganizerAppDelegate.h"
+#import "FileEditController.h"
 
 @implementation IPLabFileOrganizerAppDelegate
 
 @synthesize window;
+@synthesize feController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Insert code here to initialize your application 
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+	[feController cancelProcessing:nil];
 }
 
 @end

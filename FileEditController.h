@@ -28,4 +28,5 @@
 
 - (IBAction)startProcessing:(id)sender;
 - (IBAction)cancelProcessing:(id)sender;
+- (IBAction)openFile:(id)sender;
 @end

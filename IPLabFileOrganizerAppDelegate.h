@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class FileEditController;
 
 @interface IPLabFileOrganizerAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
+	FileEditController *feController;
 }
 
 @property (assign) IBOutlet NSWindow *window;
-
+@property(assign)IBOutlet FileEditController *feController;
 @end

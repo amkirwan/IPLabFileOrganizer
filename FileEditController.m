@@ -36,6 +36,18 @@
 			 heading:@"Finished"];
 }
 
+- (void)updateProgress:(NSNumber *)completed 
+{
+	//NSLog(@"%qu", completed);
+	//NSLog(@"%f", ((compf / [self.fileModel steps]) * 100.0));
+	float compf = [completed floatValue];	
+	[progress setDoubleValue:((compf / [self.fileModel steps]) * 100.0)];
+	[progress displayIfNeeded];
+	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %qu of %qu", [completed integerValue], [self.fileModel steps]]];
+	[completedText displayIfNeeded];
+}
+
+// IBActions
 - (IBAction)startProcessing:(id)sender 
 {
 	if (self.folderExists && [steps intValue] > 0) 
@@ -63,19 +75,27 @@
 
 - (IBAction)cancelProcessing:(id)sender 
 {
-	[fileModel cancelAll];
+	[self.fileModel cancelAll];
 }
 
-- (void)updateProgress:(NSNumber *)completed 
+- (IBAction)openFile:(id)sender
 {
-	//NSLog(@"%qu", completed);
-	//NSLog(@"%f", ((compf / [self.fileModel steps]) * 100.0));
-	float compf = [completed floatValue];	
-	[progress setDoubleValue:((compf / [self.fileModel steps]) * 100.0)];
-	[progress displayIfNeeded];
-	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %qu of %qu", [completed integerValue], [self.fileModel steps]]];
-	[completedText displayIfNeeded];
+	NSLog(@"openPanel");
+	NSOpenPanel *oPanel = [NSOpenPanel openPanel];
+	[oPanel setCanChooseDirectories:YES];
+	[oPanel	setCanChooseFiles:NO];
+	[oPanel setDirectoryURL:[NSURL URLWithString:NSHomeDirectory()]];
+	NSInteger result = [oPanel runModal];
+	
+	if (result == NSOKButton) 
+	{
+		NSArray *folderToOpen = [oPanel URLs];
+		NSURL *url = [[folderToOpen objectAtIndex:0] filePathURL];
+		[sourceFolder setStringValue:[url path]];
+	}
 }
+
+
 
 
 - (id)init 
