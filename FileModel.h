@@ -17,6 +17,10 @@
 	NSOperationQueue *queue;
 	NSFileManager *fileManager;
 	BOOL isProcessing;
+	NSMutableArray *createdFolders;
+	NSArray *subFoldersPaths;
+	NSArray *fileNames;
+	NSUInteger completedSteps;
 }
 @property(copy)NSString *sourceFolder;
 @property(assign)NSUInteger steps;

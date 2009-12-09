@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 @class FileEditController;
 
-@interface IPLabFileOrganizerAppDelegate : NSObject <NSApplicationDelegate> {
+@interface IPLabFileOrganizerAppDelegate : NSObject {
     NSWindow *window;
 	FileEditController *feController;
 }

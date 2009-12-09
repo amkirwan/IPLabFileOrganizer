@@ -16,6 +16,7 @@
 	IBOutlet NSTextField *sourceFolder;
 	IBOutlet NSTextField *steps;
 	IBOutlet NSButton *startButton;
+	IBOutlet NSButton *cancelButton;
 	IBOutlet NSProgressIndicator *progress;
 	IBOutlet NSTextField *completedText;
 	BOOL folderExists;

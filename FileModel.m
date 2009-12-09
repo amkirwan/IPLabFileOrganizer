@@ -130,10 +130,10 @@ static NSString *OutputFolderName = @"processedIPLab";
 			{
 				NSString *oldPath = [allFilesArray objectAtIndex:j];
 				NSString *newPath = [destPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%qu", indexName]];
-				//NSLog(@"oldPath= %@", oldPath);
-				//NSLog(@"newPath= %@", newPath);
+				NSLog(@"oldPath= %@", oldPath);
+				NSLog(@"newPath= %@", newPath);
 				NSError *error = nil;
-				BOOL move = YES;//[self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
+				BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
 				if (!move)
 				{
 					NSLog(@"%@", [error localizedFailureReason]);
@@ -143,7 +143,6 @@ static NSString *OutputFolderName = @"processedIPLab";
 			[self.delegate performSelectorOnMainThread:@selector(updateProgress:) 
 											withObject:[NSNumber numberWithUnsignedInteger:(i + incr)]
 										 waitUntilDone:YES];
-			//[self.delegate updateProgress:(i + incr)];
 		}
 		self.isProcessing = NO;
 	}	
@@ -209,12 +208,12 @@ static NSString *OutputFolderName = @"processedIPLab";
 
 - (id)init
 {
-	if (self = [super init]) {	
+	if (self = [super init]) 
+	{	
 		self.sourceFolder = nil;
 		self.steps = 1;
 		self.fileManager = [[NSFileManager alloc] init];
 	}
-	NSLog(@"init");
 	return self;
 }
 @end

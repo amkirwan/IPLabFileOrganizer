@@ -19,6 +19,8 @@
 {
 	self.folderExists = [FileModel folderExists:
 						 [[aNotification object] stringValue]];
+	NSLog(@"%@", [aNotification name]);
+	NSLog(@"%@", [[aNotification object] stringValue]);
 	if (self.folderExists) 
 	{
 		[[aNotification object] setTextColor:[NSColor blackColor]];
@@ -30,6 +32,7 @@
 - (void)finishedProcessing
 {
 	[startButton setEnabled:YES];
+	[cancelButton setEnabled:NO];
 	[progress setHidden:YES];
 	[completedText setHidden:YES];	
 	[alert showAlert:@"Completed processing files into directory processedIPLab"
@@ -54,6 +57,7 @@
 	{
 		
 		[startButton setEnabled:NO];
+		[cancelButton setEnabled:YES];
 		[progress setHidden:NO];
 		[completedText setHidden:YES];
 		[self.fileModel startProcessingFromDir:[sourceFolder stringValue]
@@ -70,7 +74,6 @@
 		[alert showAlert:@"The steps must be greater than 0 for processing."
 	             heading:@"Warning"];
 	}
-
 }
 
 - (IBAction)cancelProcessing:(id)sender 
@@ -84,18 +87,27 @@
 	NSOpenPanel *oPanel = [NSOpenPanel openPanel];
 	[oPanel setCanChooseDirectories:YES];
 	[oPanel	setCanChooseFiles:NO];
-	[oPanel setDirectoryURL:[NSURL URLWithString:NSHomeDirectory()]];
-	NSInteger result = [oPanel runModal];
+	//[oPanel setDirectoryURL:[NSURL URLWithString:NSHomeDirectory()]];
+	//NSInteger result = [oPanel runModal];
+	NSInteger result = [oPanel runModalForDirectory:NSHomeDirectory() file:nil
+									types:nil];
+	
 	
 	if (result == NSOKButton) 
 	{
 		NSArray *folderToOpen = [oPanel URLs];
-		NSURL *url = [[folderToOpen objectAtIndex:0] filePathURL];
+		NSURL *url = [NSURL fileURLWithPath:[[folderToOpen objectAtIndex:0] relativePath]];
 		[sourceFolder setStringValue:[url path]];
+		[[NSNotificationCenter defaultCenter] 
+		 postNotificationName:@"NSControlTextDidChangeNotification"
+		 object:sourceFolder];
 	}
 }
 
-
+- (void)awakeFromNib
+{
+	[cancelButton setEnabled:NO];
+}
 
 
 - (id)init 
