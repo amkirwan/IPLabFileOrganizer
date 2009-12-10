@@ -15,6 +15,18 @@
 @synthesize fileModel;
 @synthesize alert;
 
+
+- (id)init 
+{
+	if (self = [super init]) {
+		self.folderExists = NO;
+		self.fileModel = [[FileModel alloc] init];
+		self.fileModel.delegate = self;
+		self.alert = [[AlertMessage alloc] init];
+	}
+	return self;
+}
+
 - (void)controlTextDidChange:(NSNotification *)aNotification 
 {
 	self.folderExists = [FileModel folderExists:
@@ -29,14 +41,15 @@
 	}
 }
 
-- (void)finishedProcessing
+- (void)finishedProcessing:(NSString *)message
 {
 	[startButton setEnabled:YES];
 	[cancelButton setEnabled:NO];
 	[progress setHidden:YES];
 	[completedText setHidden:YES];	
-	[alert showAlert:@"Completed processing files into directory processedIPLab"
-			 heading:@"Finished"];
+	[alert showAlert:message heading:@"Finished"];
+	self.fileModel.isProcessing = NO;
+
 }
 
 - (void)updateProgress:(NSNumber *)completed 
@@ -107,18 +120,6 @@
 - (void)awakeFromNib
 {
 	[cancelButton setEnabled:NO];
-}
-
-
-- (id)init 
-{
-	if (self = [super init]) {
-		self.folderExists = NO;
-		self.fileModel = [[FileModel alloc] init];
-		self.fileModel.delegate = self;
-		self.alert = [[AlertMessage alloc] init];
-	}
-	return self;
 }
 
 @end

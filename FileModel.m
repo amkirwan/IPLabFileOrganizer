@@ -86,6 +86,7 @@ static NSString *OutputFolderName = @"processedIPLab";
 
 - (void)cancelAll
 {
+	NSLog(@"cancelAll");
 	self.isProcessing = NO;
 	[queue cancelAllOperations];
 }
@@ -117,38 +118,64 @@ static NSString *OutputFolderName = @"processedIPLab";
 	[self createProcessedFolder];
 	[self createSubFolders:self.steps];
 	
-	while (self.isProcessing) 
+	NSUInteger incr = 1;
+	NSString *newFilename;
+	for(NSUInteger i=0; self.isProcessing && i < self.steps; i++)
 	{
-		NSUInteger incr = 1;
-		for(NSUInteger i=0; i < self.steps; i++)
+		NSString *destPath = [self.sourceFolder 
+								stringByAppendingPathComponent:[OutputFolderName stringByAppendingPathComponent:
+								[NSString stringWithFormat:@"%qu", (i + incr)]]];
+		NSUInteger indexName = 1;
+		for(NSUInteger j=i; j < [allFilesArray count]; j += self.steps)
 		{
-			NSString *destPath = [self.sourceFolder 
-									stringByAppendingPathComponent:[OutputFolderName stringByAppendingPathComponent:
-									[NSString stringWithFormat:@"%qu", (i + incr)]]];
-			NSUInteger indexName = 1;
-			for(NSUInteger j=i; j < [allFilesArray count]; j += self.steps)
+			if (!self.isProcessing) break;			
+			if (indexName < 10) 
 			{
-				NSString *oldPath = [allFilesArray objectAtIndex:j];
-				NSString *newPath = [destPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%qu", indexName]];
-				NSLog(@"oldPath= %@", oldPath);
-				NSLog(@"newPath= %@", newPath);
-				NSError *error = nil;
-				BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
-				if (!move)
-				{
-					NSLog(@"%@", [error localizedFailureReason]);
-				}
-				indexName++;
+				newFilename = [@"a000" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
+				NSLog(@"%@", newFilename);
 			}
-			[self.delegate performSelectorOnMainThread:@selector(updateProgress:) 
-											withObject:[NSNumber numberWithUnsignedInteger:(i + incr)]
-										 waitUntilDone:YES];
+			else if (indexName >= 10 && indexName < 100)
+			{
+				newFilename = [@"a00" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
+			}
+			else if (indexName >= 100 && indexName < 1000)
+			{
+				newFilename = [@"a0" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
+			}
+			else
+			{
+				newFilename = [@"a" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
+			}
+			NSString *oldPath = [allFilesArray objectAtIndex:j];
+			NSString *newPath = [destPath stringByAppendingPathComponent:newFilename];
+			//NSLog(@"oldPath= %@", oldPath);
+			//NSLog(@"newPath= %@", newPath);
+			NSError *error = nil;
+			BOOL move = YES;//[self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
+			if (!move)
+			{
+				NSLog(@"%@", [error localizedFailureReason]);
+			}
+			indexName++;
 		}
-		self.isProcessing = NO;
+		[self.delegate performSelectorOnMainThread:@selector(updateProgress:) 
+										withObject:[NSNumber numberWithUnsignedInteger:(i + incr)]
+										waitUntilDone:YES];
 	}	
 	allFilesArray = nil;
-	[self.delegate performSelectorOnMainThread:@selector(finishedProcessing) 
-									withObject:nil
+	NSString *message;
+	if (self.isProcessing) 
+	{
+		message = @"Completed processing files into directory processedIPLab.";
+		self.isProcessing = NO;
+	}
+	else
+	{
+		message = @"Processing cancelled!";
+	}
+		
+	[self.delegate performSelectorOnMainThread:@selector(finishedProcessing:) 
+									withObject:message
 								 waitUntilDone:NO];
 } 
 
@@ -196,12 +223,26 @@ static NSString *OutputFolderName = @"processedIPLab";
 		
 	self.steps = (NSUInteger)[sSteps integerValue];
 	if ([fileManager changeCurrentDirectoryPath:self.sourceFolder]) 
-	{				
-		self.subFoldersPaths = [self getSubFolderPaths];
-		queue = [[NSOperationQueue alloc] init];
-		MoveRenameOperation *op = [[MoveRenameOperation alloc] init];
-		[op setFileModel:self];
-		[queue addOperation:op];
+	{	
+		NSString *message;
+		message = [[NSString stringWithString:@"The folder '"] stringByAppendingString:OutputFolderName];
+		message = [message stringByAppendingString:@"' alread exists.\n Please delete or move to continue processing."];
+		NSLog(@"%@", message);
+		if([fileManager fileExistsAtPath:[[fileManager currentDirectoryPath] stringByAppendingPathComponent:OutputFolderName]])
+		{
+			[self.delegate performSelectorOnMainThread:@selector(finishedProcessing:) 
+											withObject:message
+										 waitUntilDone:NO];
+		}
+		else 
+		{			
+			self.subFoldersPaths = [self getSubFolderPaths];
+			queue = [[NSOperationQueue alloc] init];
+			MoveRenameOperation *op = [[MoveRenameOperation alloc] init];
+			[op setFileModel:self];
+			[queue addOperation:op];	
+		}
+
 	}
 	
 }
