@@ -151,7 +151,7 @@ static NSString *OutputFolderName = @"processedIPLab";
 			//NSLog(@"oldPath= %@", oldPath);
 			//NSLog(@"newPath= %@", newPath);
 			NSError *error = nil;
-			BOOL move = YES;//[self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
+			BOOL move = [self.fileManager moveItemAtPath:oldPath toPath:newPath error:&error];
 			if (!move)
 			{
 				NSLog(@"%@", [error localizedFailureReason]);
