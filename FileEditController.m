@@ -71,7 +71,7 @@
 		[startButton setEnabled:NO];
 		[cancelButton setEnabled:YES];
 		[progress setHidden:NO];
-		[completedText setHidden:YES];
+		[completedText setHidden:NO];
 		[self.fileModel startProcessingFromDir:[sourceFolder stringValue]
 									steps:[steps stringValue]];
 	}
