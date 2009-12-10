@@ -15,8 +15,6 @@
 @synthesize fileModel;
 @synthesize alert;
 
-
-
 - (id)init 
 {
 	if (self = [super init]) {
