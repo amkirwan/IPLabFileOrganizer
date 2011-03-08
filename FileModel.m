@@ -124,27 +124,27 @@ static NSString *OutputFolderName = @"processedIPLab";
 	{
 		NSString *destPath = [self.sourceFolder 
 								stringByAppendingPathComponent:[OutputFolderName stringByAppendingPathComponent:
-								[NSString stringWithFormat:@"%qu", (i + incr)]]];
+								[NSString stringWithFormat:@"%lu", (unsigned long)(i + incr)]]];
 		NSUInteger indexName = 1;
 		for(NSUInteger j=i; j < [allFilesArray count]; j += self.steps)
 		{
 			if (!self.isProcessing) break;			
 			if (indexName < 10) 
 			{
-				newFilename = [@"a000" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
-				NSLog(@"%@", newFilename);
+				newFilename = [@"a000" stringByAppendingString:[NSString stringWithFormat:@"%lu", (unsigned long)indexName]];
+				//NSLog(@"%@", newFilename);
 			}
 			else if (indexName >= 10 && indexName < 100)
 			{
-				newFilename = [@"a00" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
+				newFilename = [@"a00" stringByAppendingString:[NSString stringWithFormat:@"%lu", (unsigned long)indexName]];
 			}
 			else if (indexName >= 100 && indexName < 1000)
 			{
-				newFilename = [@"a0" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
+				newFilename = [@"a0" stringByAppendingString:[NSString stringWithFormat:@"%lu", (unsigned long)indexName]];
 			}
 			else
 			{
-				newFilename = [@"a" stringByAppendingFormat:[NSString stringWithFormat:@"%qu", indexName]];
+				newFilename = [@"a" stringByAppendingString:[NSString stringWithFormat:@"%lu", (unsigned long)indexName]];
 			}
 			NSString *oldPath = [allFilesArray objectAtIndex:j];
 			NSString *newPath = [destPath stringByAppendingPathComponent:newFilename];
@@ -227,7 +227,7 @@ static NSString *OutputFolderName = @"processedIPLab";
 		NSString *message;
 		message = [[NSString stringWithString:@"The folder '"] stringByAppendingString:OutputFolderName];
 		message = [message stringByAppendingString:@"' alread exists.\n Please delete or move to continue processing."];
-		NSLog(@"%@", message);
+		//NSLog(@"%@", message);
 		if([fileManager fileExistsAtPath:[[fileManager currentDirectoryPath] stringByAppendingPathComponent:OutputFolderName]])
 		{
 			[self.delegate performSelectorOnMainThread:@selector(finishedProcessing:) 

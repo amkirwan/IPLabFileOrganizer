@@ -29,7 +29,7 @@
 @property(assign)NSFileManager *fileManager;
 @property(assign)BOOL isProcessing;
 @property(assign)NSMutableArray *createdFolders;
-@property(retain)NSArray *subFoldersPaths;
+@property(assign)NSArray *subFoldersPaths;
 @property(assign)NSArray *fileNames;
 
 

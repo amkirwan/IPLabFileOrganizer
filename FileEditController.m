@@ -53,12 +53,13 @@
 
 - (void)updateProgress:(NSNumber *)completed 
 {
-	//NSLog(@"%qu", completed);
+	NSLog(@"%ld", [completed longValue]);
 	//NSLog(@"%f", ((compf / [self.fileModel steps]) * 100.0));
 	float compf = [completed floatValue];	
 	[progress setDoubleValue:((compf / [self.fileModel steps]) * 100.0)];
 	[progress displayIfNeeded];
-	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %qu of %qu", [completed integerValue], [self.fileModel steps]]];
+	[completedText setStringValue:[NSString stringWithFormat:@"Completed: %ld of %lu", 
+								   [completed longValue], (long)[self.fileModel steps]]];
 	[completedText displayIfNeeded];
 }
 
